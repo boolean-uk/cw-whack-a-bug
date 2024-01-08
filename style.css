@@ -36,3 +36,24 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.game-data {
+    padding: 12px;
+    width: 240px;
+}
+
+p {
+    margin-bottom: 36px;
+}
+
+h4 {
+    margin-top: 28px;
+}
+
+.bug {
+    background-image: url('images/bug.png');
+}
+  
+.splat {
+    background-image: url('images/bug-splat.png');
+}
