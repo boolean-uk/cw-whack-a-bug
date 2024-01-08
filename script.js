@@ -5,7 +5,7 @@ const cells = document.querySelectorAll('.cell')
 const gameOverElement = document.querySelector('.game-over')
 
 // Define some game state
-let score = 50
+let score = 0
 let timeLeft = 3
 let bugSpeed = 800
 let gameOver = false
@@ -44,3 +44,23 @@ function randomBug() {
   
   // Create an interval that runs the randomBug function every bugSpeed miliseconds
 const bugMovement = setInterval(randomBug, bugSpeed)
+
+// Create a function to make the timer count down
+function countDown() {
+    // Reduce the timeLeft variable by 1 then change the timer text on screen to reflect it
+    timerDisplay.innerText = --timeLeft
+  
+    // Check if the timer has finished
+    if (timeLeft === 0) {
+        // If it has, clear the intervals to stop the bug moving 
+        clearInterval(timer)
+        clearInterval(bugMovement)
+        // Set gameOver to true so we can't click any more bugs
+        gameOver = true
+        // Display the game over text
+        gameOverElement.innerText = `GAME OVER! Score: ${score}`
+    }
+}
+  
+// Create an interval that will run the countDown function every 1 second
+const timer = setInterval(countDown, 1000)
